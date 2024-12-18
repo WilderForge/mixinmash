@@ -7,7 +7,7 @@ import org.osgi.framework.BundleContext;
 
 public class Activator extends Plugin {
 
-	private static final String PLUGIN_ID = "com.wildermods.mixinmash";
+	private static final String PLUGIN_ID = "mixinmash";
 	private static Activator plugin;
 	
 	private BundleContext context;
