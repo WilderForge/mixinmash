@@ -4,11 +4,16 @@ Bundle-Name: mixinmash
 Bundle-SymbolicName: mixinmash;singleton:=true
 Bundle-Version: 0.0.0.0
 Bundle-Activator: com.wildermods.mixinmash.Activator
+Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.core.runtime;bundle-version="3.31.100",
  org.eclipse.debug.core;bundle-version="3.21.500",
  org.eclipse.jdt.debug;bundle-version="3.21.500",
  org.eclipse.ui;bundle-version="3.206.100",
- org.eclipse.jdt.core;bundle-version="3.39.0"
+ org.eclipse.jdt.core;bundle-version="3.39.0",
+ org.eclipse.debug.ui.launchview;bundle-version="1.1.600",
+ org.eclipse.debug.ui;bundle-version="3.18.600",
+ bcpg,
+ org.eclipse.jdt.debug.ui;bundle-version="3.13.600"
 Bundle-Vendor: com.wildermods
 Automatic-Module-Name: mixinmash
 Bundle-RequiredExecutionEnvironment: JavaSE-21

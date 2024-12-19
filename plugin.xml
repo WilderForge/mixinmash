@@ -1,11 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?eclipse version="3.4"?>
+<?eclipse version="4.34"?>
 <plugin>
     <extension point="org.eclipse.debug.core.sourceLocators">
         <sourceLocator
-            id="com.wildermods.mixinmash.sourceLocator"
+            id="mixinmash.sourceLocator"
             name="MixinMash Source Locator"
             class="com.wildermods.mixinmash.TestSourceLookupDirector">
         </sourceLocator>
+    </extension>
+
+    <extension point="org.eclipse.debug.core.launchConfigurationTypes">
+        <launchConfigurationType
+            id="mixinmash.launchconfig.decompdebug"
+            name="MixinMash Launch Configuration"
+            delegate="com.wildermods.mixinmash.launchconfig.DebugWithDecompilerDelegate"
+            modes="debug"
+            public="true">
+        </launchConfigurationType>
+    </extension>
+    <extension
+          point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+       <launchConfigurationTabGroup
+             class="com.wildermods.mixinmash.launchconfig.ui.DecompDebugTagGroup"
+             id="mixinmash.launchConfigurationTabGroup"
+             type="mixinmash.launchconfig.decompdebug">
+       </launchConfigurationTabGroup>
     </extension>
 </plugin>

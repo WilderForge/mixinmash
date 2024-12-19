@@ -1,33 +1,24 @@
 package com.wildermods.mixinmash;
 
 import org.eclipse.core.runtime.ILog;
-import org.eclipse.core.runtime.Plugin;
-
+import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
-public class Activator extends Plugin {
+public class Activator extends AbstractUIPlugin {
 
 	private static final String PLUGIN_ID = "mixinmash";
+	private static ILog LOGGER;
 	private static Activator plugin;
-	
-	private BundleContext context;
-	private ILog LOG;
-	
-	private static TestSourceLookupDirector testDirector;
 	
 	@Override
 	public void start(BundleContext context) throws Exception {
-		super.start(context);
-		plugin = this;
-		
-		this.context = context;
-		this.LOG = ILog.of(context.getBundle());
-		
-		LOG.info("Activator started for plugin " + PLUGIN_ID);
-		System.out.println("TEST TEST TEST TEST TEST TEST");
-		if(testDirector == null) {
-			testDirector = new TestSourceLookupDirector();
-		}
+	    plugin = this;
+	    LOGGER = ILog.of(Activator.class);
+	    LOGGER.info("Activator started for plugin " + PLUGIN_ID);
+	    super.start(context);
+
+	    // Add more diagnostics
+	    LOGGER.info("Plugin started. Bundle state: " + context.getBundle().getState());
 	}
 	
 	@Override
@@ -38,5 +29,9 @@ public class Activator extends Plugin {
 	
 	public static Activator getDefault() {
 		return plugin;
+	}
+	
+	public static ILog getLogger() {
+		return LOGGER;
 	}
 }
